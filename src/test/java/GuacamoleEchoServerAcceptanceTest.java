@@ -1,5 +1,7 @@
 package test.java;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import main.TcpClient;
 import org.junit.jupiter.api.Test;
 
 public class GuacamoleEchoServerAcceptanceTest {
@@ -8,8 +10,13 @@ public class GuacamoleEchoServerAcceptanceTest {
 //    @AfterEach
 //    stop server
     @Test
-//    run test
-    void myFirstTest() {
-        assertEquals(2, 1 + 1);
+    void whenClientSendsString_ServerRespondsIdenticalString() throws Exception {
+        try (var client = TcpClient.forLocalServer()) {
+            client.connect();
+            var clientInput = "hello";
+            var serverResponse = client.echo(clientInput);
+
+            assertEquals(clientInput, serverResponse);
+        }
     }
 }
