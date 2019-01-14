@@ -1,0 +1,20 @@
+.gradle
+build
+out
+.idea
+src/main/java/com/olgaboiar/guacomole/EchoClient.java
+src/main/java/com/olgaboiar/guacomole/test.java
+src/test/java/com/olgaboiar/guacomole/EchoClientTest.java
+src/test/java/com/olgaboiar/guacomole/testTest.java
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
