@@ -11,7 +11,7 @@ public class ServerProcess {
 
     private ServerProcess() throws IOException {
         serverProcess = new ProcessBuilder()
-                .command("java", "-jar", "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar")
+                .command("java", "-jar", "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar", "localhost", "3333")
                 .inheritIO()
                 .start();
     }

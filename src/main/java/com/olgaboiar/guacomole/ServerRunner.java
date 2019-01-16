@@ -6,6 +6,8 @@ public class ServerRunner {
     public static void main(String[] args) throws IOException {
         EchoServer server;
         server = new EchoServer();
-        server.start("localhost", 3333);
+        String host = args[0];
+        int port = Integer.parseInt(args[1]);
+        server.start(host, port);
     }
 }
