@@ -2,7 +2,6 @@
 build
 out
 .idea
-src/main/java/com/olgaboiar/guacomole/EchoClient.java
 src/main/java/com/olgaboiar/guacomole/test.java
 src/test/java/com/olgaboiar/guacomole/EchoClientTest.java
 src/test/java/com/olgaboiar/guacomole/testTest.java
