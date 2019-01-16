@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClassName = 'com.olgaboiar.guacomole.EchoServer'
+    mainClassName = 'com.olgaboiar.guacomole.ServerRunner'
 }
 
 version '1.0-SNAPSHOT'
@@ -40,5 +40,14 @@ task cucumber() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
         }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.olgaboiar.guacomole.ServerRunner'
+        )
     }
 }
