@@ -5,13 +5,13 @@ import java.io.IOException;
 public class ServerProcess {
     Process serverProcess;
 
-    public static ServerProcess start() throws IOException{
-        return new ServerProcess();
+    public static ServerProcess start(String build) throws IOException{
+        return new ServerProcess(build);
     }
 
-    private ServerProcess() throws IOException {
+    private ServerProcess(String build) throws IOException {
         serverProcess = new ProcessBuilder()
-                .command("java", "-jar", "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar", "localhost", "3333")
+                .command("java", "-jar", build, "localhost", "3333")
                 .inheritIO()
                 .start();
     }

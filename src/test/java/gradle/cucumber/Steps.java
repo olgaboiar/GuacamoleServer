@@ -12,7 +12,8 @@ public class Steps {
 
     @Given("Server process is started")
     public void the_server_is_started() throws Throwable {
-        serverProcess = ServerProcess.start();
+        String build = "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar";
+        serverProcess = ServerProcess.start(build);
     }
 
     @When("Client connects to server")
