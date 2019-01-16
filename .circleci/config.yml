@@ -1,7 +1,4 @@
 # Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2
 jobs:
   build:
@@ -24,6 +21,7 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
+      CC_TEST_REPORTER_ID: 722278bb799a47ea5089335791ee322297a86de19f6319355d697daad4051435
 
     steps:
       - checkout
@@ -42,9 +40,27 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            # download test reporter as a static binary
+                     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+                     chmod +x ./cc-test-reporter
+
       # run tests!
       - run: gradle test
       - run: gradle cucumber
+
+
+      - run:
+          name: Generate JaCoCo report
+          command: ./gradlew jacocoTestReport
+      - run:
+          name: Upload coverage to code climate
+          command: |
+            export JACOCO_SOURCE_PATH=app/src/main/java
+            ./cc-test-reporter format-coverage app/build/reports/coverage/debug/report.xml -t jacoco
+            ./cc-test-reporter upload-coverage
 
 
 
