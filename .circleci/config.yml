@@ -48,19 +48,19 @@ jobs:
                      chmod +x ./cc-test-reporter
 
       # run tests!
-#      - run: gradle test
-#      - run: gradle cucumber
+      - run: gradle test jacocoTestReport
+      - run: gradle cucumber
 
 
-      - run:
-          name: Generate JaCoCo report
+#      - run:
+#          name: Generate JaCoCo report
 #          command: ./gradlew jacocoTestReport
-          command: ./gradlew clean build jacocoTestReport
+#          command: ./gradlew clean build jacocoTestReport
       - run:
           name: Upload coverage to code climate
           command: |
             export JACOCO_SOURCE_PATH=app/src/main/java
-            ./cc-test-reporter format-coverage ./build/customJacocoReportDir/test/jacocoTestreport.xml --input-type jacoco
+            ./cc-test-reporter format-coverage /build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
             ./cc-test-reporter upload-coverage
 
 
