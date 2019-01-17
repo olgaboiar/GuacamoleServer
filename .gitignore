@@ -3,7 +3,6 @@ out
 build/classes/
 build/distributions/
 build/jacocoHtml/
-build/libs/
 build/scripts/
 build/tmp/
 .idea
