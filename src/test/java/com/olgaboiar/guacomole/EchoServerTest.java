@@ -1,7 +1,5 @@
 package com.olgaboiar.guacomole;
 
-
-import cucumber.api.java.an.E;
 import gradle.cucumber.ServerProcess;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +11,7 @@ import java.net.Socket;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EchoServerTest {
-    EchoClient test_client;
+    EchoClient testClient;
     ServerProcess serverProcess;
     Socket socket;
 
@@ -21,7 +19,7 @@ class EchoServerTest {
     public void setup () throws Exception {
         String build = "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar";
         serverProcess = ServerProcess.start(build);
-        test_client = new EchoClient("localhost", 3333);
+        testClient = new EchoClient("localhost", 3333);
     }
 
     @Test
@@ -37,11 +35,21 @@ class EchoServerTest {
     @Test
     void testServerReturnsHelloWhenClientSentHello () throws Exception {
         Thread.sleep(500);
-        test_client.connect();
-        byte[] client_input = "hello\n".getBytes();
-        byte[] server_response = test_client.send(client_input);
-        Assert.assertArrayEquals(client_input, server_response);
-        test_client.close();
+        testClient.connect();
+        byte[] clientInput = "hello\n".getBytes();
+        byte[] serverResponse = testClient.send(clientInput);
+        Assert.assertArrayEquals(clientInput, serverResponse);
+        testClient.close();
+    }
+
+    @Test
+    void testServerReturnsByeWhenClientSentBye () throws Exception {
+        Thread.sleep(500);
+        testClient.connect();
+        byte[] clientInput = "Bye\n".getBytes();
+        byte[] serverResponse = testClient.send(clientInput);
+        Assert.assertArrayEquals(clientInput, serverResponse);
+        testClient.close();
     }
 
 }

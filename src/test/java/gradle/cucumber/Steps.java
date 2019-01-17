@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 public class Steps {
     ServerProcess serverProcess;
-    private EchoClient echo_client;
+    private EchoClient echoClient;
 
     @Given("Server process is started")
     public void the_server_is_started() throws Throwable {
@@ -18,15 +18,15 @@ public class Steps {
 
     @When("Client connects to server")
     public void client_connects_to_server() throws Throwable {
-        echo_client = new EchoClient("localhost", 3333);
-        echo_client.connect();
+        echoClient = new EchoClient("localhost", 3333);
+        echoClient.connect();
     }
 
     @Then("Server echoes client input")
     public void server_responds_with_the_same_string() throws Throwable {
-        byte[] client_input = "hello\n".getBytes();
-        byte[] server_response = echo_client.send(client_input);
-        Assert.assertArrayEquals(client_input, server_response);
+        byte[] clientInput = "hello\n".getBytes();
+        byte[] serverResponse = echoClient.send(clientInput);
+        Assert.assertArrayEquals(clientInput, serverResponse);
     }
 
 }

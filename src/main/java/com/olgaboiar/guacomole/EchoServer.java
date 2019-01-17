@@ -8,9 +8,16 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class EchoServer {
-    public synchronized void start(String host, int port) throws IOException {
+    String host;
+    static int port;
+
+    public EchoServer(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    public static void start() throws IOException {
         ServerSocket serverSocket = new ServerSocket(port);
-//        notify();
         Socket clientSocket = serverSocket.accept();
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
