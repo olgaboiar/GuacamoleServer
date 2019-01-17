@@ -16,17 +16,10 @@ public class EchoClient implements Closeable{
 
     public void connect() throws IOException, InterruptedException {
         socket = new Socket();
-//        synchronized(){
-//            try{
-//                System.out.println("Waiting for b to complete...");
-//                .wait();
-//            }catch(InterruptedException e){
-//                e.printStackTrace();
-//            }
-//
-//            System.out.println("Total is: ");
-//        }
         Thread.sleep(500);
+//        synchronized (socket) {
+//            socket.wait();
+//        }
         socket.connect(new InetSocketAddress(host, port));
     }
 

@@ -9,5 +9,8 @@ public class ServerRunner {
         String host = args[0];
         int port = Integer.parseInt(args[1]);
         server.start(host, port);
+//        synchronized (server) {
+//            server.notify();
+//        }
     }
 }

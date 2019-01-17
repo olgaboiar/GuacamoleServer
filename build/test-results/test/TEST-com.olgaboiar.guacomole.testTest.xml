@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.olgaboiar.guacomole.testTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-01-17T15:01:50" hostname="Olgas-MacBook-Pro.local" time="0.018">
-  <properties/>
-  <testcase name="TestName()" classname="com.olgaboiar.guacomole.testTest" time="0.018"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

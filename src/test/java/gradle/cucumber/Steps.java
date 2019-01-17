@@ -26,8 +26,6 @@ public class Steps {
     public void server_responds_with_the_same_string() throws Throwable {
         byte[] client_input = "hello\n".getBytes();
         byte[] server_response = echo_client.send(client_input);
-        if (client_input == server_response) {
-        }
         Assert.assertArrayEquals(client_input, server_response);
     }
 

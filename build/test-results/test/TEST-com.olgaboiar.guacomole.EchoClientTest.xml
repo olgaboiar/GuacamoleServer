@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.olgaboiar.guacomole.EchoClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-01-17T19:57:38" hostname="Olgas-MacBook-Pro.local" time="1.057">
+  <properties/>
+  <testcase name="testClientConnectsToServer()" classname="com.olgaboiar.guacomole.EchoClientTest" time="1.057"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

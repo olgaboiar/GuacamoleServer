@@ -52,10 +52,6 @@ jobs:
       - run: gradle cucumber
 
 
-#      - run:
-#          name: Generate JaCoCo report
-#          command: ./gradlew jacocoTestReport
-#          command: ./gradlew clean build jacocoTestReport
       - run:
           name: Upload coverage to code climate
           command: |
