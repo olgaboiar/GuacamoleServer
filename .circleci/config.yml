@@ -60,8 +60,8 @@ jobs:
           name: Upload coverage to code climate
           command: |
             export JACOCO_SOURCE_PATH=app/src/main/java
-            ./cc-test-reporter format-coverage /build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
-            ./cc-test-reporter upload-coverage
+            ./cc-test-reporter format-coverage /build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco --debug
+            ./cc-test-reporter upload-coverage --debug
 
 
 
