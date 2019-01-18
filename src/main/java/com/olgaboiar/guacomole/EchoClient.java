@@ -8,19 +8,27 @@ public class EchoClient implements Closeable{
     String host;
     int port;
     Socket socket;
+    int connectionAttempts;
+    int maxConnectionAttempts;
 
     public EchoClient(String host, int port) {
         this.host = host;
         this.port = port;
+        this.maxConnectionAttempts = 20;
+        this.connectionAttempts = 0;
     }
 
     public void connect() throws IOException, InterruptedException {
         socket = new Socket();
-        Thread.sleep(500);
-//        synchronized (socket) {
-//            socket.wait();
-//        }
-        socket.connect(new InetSocketAddress(host, port));
+        try {
+            socket.connect(new InetSocketAddress(host, port));
+        } catch (IOException e) {
+            if (this.connectionAttempts < this.maxConnectionAttempts) {
+                Thread.sleep(500);
+                this.connectionAttempts ++;
+                connect();
+            }
+        }
     }
 
     public byte[] send(byte[] data) throws IOException {

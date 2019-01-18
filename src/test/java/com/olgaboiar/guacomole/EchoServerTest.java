@@ -23,18 +23,8 @@ class EchoServerTest {
     }
 
     @Test
-    void testServerAcceptsClientConnection () throws Exception {
-        socket = new Socket();
-        Thread.sleep(500);
-        socket.connect(new InetSocketAddress("localhost", 3333));
-        boolean connected = socket.isConnected();
-        Assert.assertTrue(connected);
-        socket.close();
-    }
-
-    @Test
     void testServerReturnsHelloWhenClientSentHello () throws Exception {
-        Thread.sleep(500);
+//        Thread.sleep(500);
         testClient.connect();
         byte[] clientInput = "hello\n".getBytes();
         byte[] serverResponse = testClient.send(clientInput);
@@ -44,7 +34,7 @@ class EchoServerTest {
 
     @Test
     void testServerReturnsByeWhenClientSentBye () throws Exception {
-        Thread.sleep(500);
+//        Thread.sleep(500);
         testClient.connect();
         byte[] clientInput = "Bye\n".getBytes();
         byte[] serverResponse = testClient.send(clientInput);
