@@ -19,19 +19,6 @@ public class Steps {
     @When("Client connects to server")
     public void client_connects_to_server() throws Throwable {
         echoClient = new EchoClient("localhost", 3333);
-//        Thread.sleep(500);
-//        boolean connected = false;
-//        while (! connected) {
-//            try {
-//                echoClient.connect();
-//                connected = true;
-//            } catch (Exception e) {
-//                System.out.println("no");
-//                Thread.sleep(100);
-//            }
-//
-//        }
-
         echoClient.connect();
     }
 

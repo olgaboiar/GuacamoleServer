@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.olgaboiar.guacomole.EchoClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-01-18T19:09:09" hostname="Olgas-MacBook-Pro.local" time="1.017">
+<testsuite name="com.olgaboiar.guacomole.EchoClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-01-18T19:23:02" hostname="Olgas-MacBook-Pro.local" time="1.011">
   <properties/>
-  <testcase name="testClientConnectsToServer()" classname="com.olgaboiar.guacomole.EchoClientTest" time="1.017"/>
+  <testcase name="testClientConnectsToServer()" classname="com.olgaboiar.guacomole.EchoClientTest" time="1.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EchoServerTest {
     EchoClient testClient;
     ServerProcess serverProcess;
-    Socket socket;
 
     @BeforeEach
     public void setup () throws Exception {
@@ -24,7 +22,6 @@ class EchoServerTest {
 
     @Test
     void testServerReturnsHelloWhenClientSentHello () throws Exception {
-//        Thread.sleep(500);
         testClient.connect();
         byte[] clientInput = "hello\n".getBytes();
         byte[] serverResponse = testClient.send(clientInput);
@@ -34,7 +31,6 @@ class EchoServerTest {
 
     @Test
     void testServerReturnsByeWhenClientSentBye () throws Exception {
-//        Thread.sleep(500);
         testClient.connect();
         byte[] clientInput = "Bye\n".getBytes();
         byte[] serverResponse = testClient.send(clientInput);
