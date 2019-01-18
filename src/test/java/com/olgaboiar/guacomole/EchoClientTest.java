@@ -2,6 +2,7 @@ package com.olgaboiar.guacomole;
 
 import gradle.cucumber.ServerProcess;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +16,14 @@ class EchoClientTest {
     Socket socket;
 
     @BeforeEach
-    public void setup () throws Exception {
+    public void preTest () throws Exception {
         String build = "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar";
         serverProcess = ServerProcess.start(build);
+    }
+
+    @AfterEach
+    public void postTest() throws Exception {
+        serverProcess.stop();
     }
 
     @Test
