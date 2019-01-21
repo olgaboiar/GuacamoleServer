@@ -25,7 +25,8 @@ public class Steps {
     @Then("Server echoes client input")
     public void server_responds_with_the_same_string() throws Throwable {
         byte[] clientInput = "hello\n".getBytes();
-        byte[] serverResponse = echoClient.send(clientInput);
+        echoClient.send(clientInput);
+        byte[] serverResponse = echoClient.receive();
         Assert.assertArrayEquals(clientInput, serverResponse);
     }
 

@@ -10,6 +10,7 @@ public class EchoClient implements Closeable{
     Socket socket;
     int connectionAttempts;
     int maxConnectionAttempts;
+    byte[] readBuffer;
 
     public EchoClient(String host, int port) {
         this.host = host;
@@ -31,9 +32,16 @@ public class EchoClient implements Closeable{
         }
     }
 
-    public byte[] send(byte[] data) throws IOException {
+    public void send(byte[] data) throws IOException {
         socket.getOutputStream().write(data);
-        byte[] readBuffer = new byte[data.length];
+        readBuffer = new byte[data.length];
+//        socket.getInputStream().read(readBuffer);
+//        return readBuffer;
+    }
+
+    public byte[] receive() throws IOException {
+//        socket.getOutputStream().write(data);
+//        byte[] readBuffer = new byte[data.length];
         socket.getInputStream().read(readBuffer);
         return readBuffer;
     }

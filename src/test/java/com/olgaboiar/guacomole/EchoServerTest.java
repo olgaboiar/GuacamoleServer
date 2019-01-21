@@ -15,14 +15,14 @@ class EchoServerTest {
     ServerProcess serverProcess;
 
     @BeforeEach
-    public void preTest () throws Exception {
+    public void setUp () throws Exception {
         String build = "build/libs/com.olgaboiar.guacomole-1.0-SNAPSHOT.jar";
         serverProcess = ServerProcess.start(build);
         testClient = new EchoClient("localhost", 3333);
     }
 
     @AfterEach
-    public void postTest() throws Exception {
+    public void tearDown() throws Exception {
         serverProcess.stop();
     }
 
@@ -30,7 +30,8 @@ class EchoServerTest {
     void testServerReturnsHelloWhenClientSentHello () throws Exception {
         testClient.connect();
         byte[] clientInput = "hello\n".getBytes();
-        byte[] serverResponse = testClient.send(clientInput);
+        testClient.send(clientInput);
+        byte[] serverResponse = testClient.receive();
         Assert.assertArrayEquals(clientInput, serverResponse);
         testClient.close();
     }
@@ -39,7 +40,8 @@ class EchoServerTest {
     void testServerReturnsByeWhenClientSentBye () throws Exception {
         testClient.connect();
         byte[] clientInput = "Bye\n".getBytes();
-        byte[] serverResponse = testClient.send(clientInput);
+        testClient.send(clientInput);
+        byte[] serverResponse = testClient.receive();
         Assert.assertArrayEquals(clientInput, serverResponse);
         testClient.close();
     }
