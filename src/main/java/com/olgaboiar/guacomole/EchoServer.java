@@ -8,7 +8,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class EchoServer {
-    public static void start(String host, int port) throws IOException {
+    String host;
+    static int port;
+
+    public EchoServer(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    public static void start() throws IOException {
         ServerSocket serverSocket = new ServerSocket(port);
         Socket clientSocket = serverSocket.accept();
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);

@@ -15,4 +15,8 @@ public class ServerProcess {
                 .inheritIO()
                 .start();
     }
+
+    public void stop() {
+        serverProcess.destroy();
+    }
 }

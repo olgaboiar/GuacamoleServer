@@ -1,10 +1,12 @@
 .gradle
-build
 out
+build/classes/
+build/distributions/
+build/jacocoHtml/
+build/scripts/
+build/tmp/
 .idea
-src/main/java/com/olgaboiar/guacomole/EchoClient.java
 src/main/java/com/olgaboiar/guacomole/test.java
-src/test/java/com/olgaboiar/guacomole/EchoClientTest.java
 src/test/java/com/olgaboiar/guacomole/testTest.java
 
 # Ignore Gradle GUI config
