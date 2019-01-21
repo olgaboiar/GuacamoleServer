@@ -9,22 +9,21 @@ public class EchoClient implements Closeable{
     int port;
     Socket socket;
     int connectionAttempts;
-    int maxConnectionAttempts;
     byte[] readBuffer;
+    int MAX_CONNECTION_ATTEMPTS = 20;
 
     public EchoClient(String host, int port) {
         this.host = host;
         this.port = port;
-        this.maxConnectionAttempts = 20;
         this.connectionAttempts = 0;
     }
 
-    public void connect() throws IOException, InterruptedException {
+    public void connect() throws InterruptedException {
         socket = new Socket();
         try {
             socket.connect(new InetSocketAddress(host, port));
         } catch (IOException e) {
-            if (this.connectionAttempts < this.maxConnectionAttempts) {
+            if (this.connectionAttempts < MAX_CONNECTION_ATTEMPTS) {
                 Thread.sleep(500);
                 this.connectionAttempts ++;
                 connect();
@@ -35,15 +34,15 @@ public class EchoClient implements Closeable{
     public void send(byte[] data) throws IOException {
         socket.getOutputStream().write(data);
         readBuffer = new byte[data.length];
-//        socket.getInputStream().read(readBuffer);
-//        return readBuffer;
     }
 
     public byte[] receive() throws IOException {
-//        socket.getOutputStream().write(data);
-//        byte[] readBuffer = new byte[data.length];
         socket.getInputStream().read(readBuffer);
         return readBuffer;
+    }
+
+    public boolean isConnected() {
+        return socket.isConnected();
     }
 
     @Override

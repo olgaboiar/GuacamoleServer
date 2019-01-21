@@ -6,10 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.net.Socket;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 class EchoServerTest {
     EchoClient testClient;
     ServerProcess serverProcess;
@@ -22,7 +18,7 @@ class EchoServerTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    public void tearDown() {
         serverProcess.stop();
     }
 

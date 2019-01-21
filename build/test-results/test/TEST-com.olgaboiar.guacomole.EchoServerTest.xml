@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.olgaboiar.guacomole.EchoServerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-01-21T14:06:08" hostname="Olgas-MacBook-Pro.local" time="1.047">
+<testsuite name="com.olgaboiar.guacomole.EchoServerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-01-21T15:01:18" hostname="Olgas-MacBook-Pro.local" time="1.091">
   <properties/>
-  <testcase name="testServerReturnsByeWhenClientSentBye()" classname="com.olgaboiar.guacomole.EchoServerTest" time="0.525"/>
-  <testcase name="testServerReturnsHelloWhenClientSentHello()" classname="com.olgaboiar.guacomole.EchoServerTest" time="0.521"/>
+  <testcase name="testServerReturnsByeWhenClientSentBye()" classname="com.olgaboiar.guacomole.EchoServerTest" time="0.571"/>
+  <testcase name="testServerReturnsHelloWhenClientSentHello()" classname="com.olgaboiar.guacomole.EchoServerTest" time="0.519"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

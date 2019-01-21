@@ -1,19 +1,15 @@
 package com.olgaboiar.guacomole;
 
 import gradle.cucumber.ServerProcess;
-import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.net.InetSocketAddress;
-import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EchoClientTest {
     ServerProcess serverProcess;
-    Socket socket;
+    EchoClient testClient;
 
     @BeforeEach
     public void setUp () throws Exception {
@@ -22,18 +18,17 @@ class EchoClientTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    public void tearDown() {
         serverProcess.stop();
     }
 
     @Test
     void testClientConnectsToServer () throws Exception {
-        socket = new Socket();
-        Thread.sleep(1000);
-        socket.connect(new InetSocketAddress("localhost", 3333));
-        boolean connected = socket.isConnected();
+        testClient = new EchoClient("localhost", 3333);
+        testClient.connect();
+        boolean connected = testClient.isConnected();
         assertTrue(connected);
-        socket.close();
+        testClient.close();
     }
 
 }

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +21,7 @@ class ServerRunnerTest {
     }
 
     @AfterEach
-    public void tearDown() throws Exception {
+    public void tearDown() {
         serverProcess.stop();
     }
 
